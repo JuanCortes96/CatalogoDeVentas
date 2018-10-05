@@ -108,7 +108,7 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pp-OQ-gRh">
-                                <rect key="frame" x="302" y="557" width="57" height="29"/>
+                                <rect key="frame" x="146" y="557" width="213" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="24"/>
                                 <nil key="textColor"/>
@@ -126,20 +126,48 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="prodAgregado" id="LBX-OK-EYG">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="prodAgregado" textLabel="zCH-hT-EPI" detailTextLabel="bf5-Hg-l0n" style="IBUITableViewCellStyleValue1" id="LBX-OK-EYG" customClass="ItemTableViewCell" customModule="CatalogoDeVentas" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LBX-OK-EYG" id="n17-VI-X6h">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LBX-OK-EYG" id="n17-VI-X6h" customClass="ItemTableViewCell" customModule="CatalogoDeVentas" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zCH-hT-EPI">
+                                                    <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bf5-Hg-l0n">
+                                                    <rect key="frame" x="316" y="12" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nombreCelda" destination="zCH-hT-EPI" id="Ts9-Oh-NCq"/>
+                                            <outlet property="precioCelda" destination="bf5-Hg-l0n" id="s4J-Cz-lcN"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="DHP-3f-Raq" id="Zgq-tU-019"/>
+                                    <outlet property="delegate" destination="DHP-3f-Raq" id="XFb-hh-YPe"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="wd9-gc-IOO"/>
                     </view>
+                    <connections>
+                        <outlet property="precioTotalCarrito" destination="4pp-OQ-gRh" id="ghQ-us-Gxl"/>
+                        <outlet property="tablaCarrito" destination="IvE-L7-zIF" id="eKp-jR-4GD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RaB-yP-eIv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -187,6 +215,10 @@
                                 <state key="normal" title="Agregar al carrito">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="agregarAlCarrito:" destination="7y7-i4-fwX" eventType="touchUpInside" id="ekr-xn-NBF"/>
+                                    <segue destination="jaN-56-ars" kind="unwind" identifier="unwindSegueToSecondView" unwindAction="unwindSecondViewWithSegue:" id="6gw-5x-cRe"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cantidad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1e-oU-YR7">
                                 <rect key="frame" x="62" y="529" width="69" height="21"/>
@@ -222,8 +254,11 @@
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="bNb-ZG-YmD"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Detalles" id="8c8-dS-3fd"/>
+                    <navigationItem key="navigationItem" title="Detalles" id="8c8-dS-3fd">
+                        <barButtonItem key="backBarButtonItem" title="Catálogo" id="WLZ-XU-7Za"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="agregar" destination="SHb-eh-QnV" id="49J-Qs-eYq"/>
                         <outlet property="etiquetaCantidad" destination="cjM-bj-dTd" id="BF8-N6-ryk"/>
                         <outlet property="nombreDetalle" destination="a6a-2L-mKf" id="EtD-ud-W3p"/>
                         <outlet property="precioDetalle" destination="S4m-jJ-7Sr" id="Ntt-OX-tHQ"/>
@@ -231,6 +266,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DFV-q7-NMD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="jaN-56-ars" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1997.5999999999999" y="465.51724137931041"/>
         </scene>

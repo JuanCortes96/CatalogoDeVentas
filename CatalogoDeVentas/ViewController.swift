@@ -14,6 +14,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     let nombres: [String] = ["Producto 1", "Producto 2", "Producto 3"]
     let precios: [Double] = [1000.00, 1500.00, 1750.00]
+    var carritoGuardado: [productoCarrito] = []
+    
+    @IBAction func unwindSecondView(segue: UIStoryboardSegue) {
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +33,18 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         celda.precio.text = String(format: "$%.2f", precios[indexPath.row])
         return celda
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "secondView"{
             let indexPath = coleccion.indexPathsForSelectedItems?.first
             let destino = segue.destination as! SecondViewController
             destino.nombreProductoDetalle = nombres[(indexPath?.row)!]
             destino.precioProductoDetalle = precios[(indexPath?.row)!]
+            destino.carrito = carritoGuardado
+        }
+        if segue.identifier == "thirdView"{
+            let destino2 = segue.destination as! ThirdViewController
+            destino2.carritoEnPantalla = carritoGuardado
         }
     }
     
