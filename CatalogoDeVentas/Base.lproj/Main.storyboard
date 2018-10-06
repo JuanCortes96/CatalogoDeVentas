@@ -60,6 +60,7 @@
                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <size key="customSize" width="350" height="100"/>
                                         <connections>
+                                            <outlet property="imagen" destination="uDh-65-0B2" id="f68-Yb-j5B"/>
                                             <outlet property="nombre" destination="C3v-AV-lw9" id="ffl-Em-cgB"/>
                                             <outlet property="precio" destination="yuq-jG-H7R" id="Fwb-rc-ctM"/>
                                             <segue destination="7y7-i4-fwX" kind="show" identifier="secondView" id="buC-7j-mz8"/>
@@ -181,10 +182,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AV2-mo-VAo">
-                                <rect key="frame" x="0.0" y="64" width="375" height="250"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="EVW-bz-NuP">
                                 <rect key="frame" x="81" y="558" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -250,6 +247,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AV2-mo-VAo">
+                                <rect key="frame" x="62" y="64" width="250" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="bNb-ZG-YmD"/>
@@ -259,7 +260,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="agregar" destination="SHb-eh-QnV" id="49J-Qs-eYq"/>
+                        <outlet property="descripcionDetalle" destination="hBp-Ey-1gQ" id="MxI-LI-1E8"/>
                         <outlet property="etiquetaCantidad" destination="cjM-bj-dTd" id="BF8-N6-ryk"/>
+                        <outlet property="imagenDetalle" destination="AV2-mo-VAo" id="McA-qM-mo8"/>
                         <outlet property="nombreDetalle" destination="a6a-2L-mKf" id="EtD-ud-W3p"/>
                         <outlet property="precioDetalle" destination="S4m-jJ-7Sr" id="Ntt-OX-tHQ"/>
                         <outlet property="stepper" destination="EVW-bz-NuP" id="Ys8-qH-x5g"/>

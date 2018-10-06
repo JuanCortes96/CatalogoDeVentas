@@ -12,5 +12,6 @@ class ItemCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var nombre: UILabel!
     @IBOutlet weak var precio: UILabel!
+    @IBOutlet weak var imagen: UIImageView!
     
 }

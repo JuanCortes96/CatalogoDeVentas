@@ -12,4 +12,6 @@ struct productoCarrito{
     var nombreProdCarrito: String
     var precioProdCarrito: Double
     var cantidadEnCarrito: Int
+    var descripcion: String
+    var imagen: String
 }
