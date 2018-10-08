@@ -10,8 +10,9 @@ import UIKit
 
 class ThirdViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var tablaCarrito: UITableView!
+    @IBOutlet weak var tablaCarrito: UITableView?
     @IBOutlet weak var precioTotalCarrito: UILabel!
+    @IBOutlet weak var volverAlCatalogo: UIBarButtonItem!
     
     var carritoEnPantalla: [productoCarrito] = []
 
@@ -33,6 +34,28 @@ class ThirdViewController: UIViewController, UITableViewDataSource, UITableViewD
         celdaProducto.textLabel?.text = "(\(String(carritoEnPantalla[indexPath.row].cantidadEnCarrito)))  \(carritoEnPantalla[indexPath.row].nombreProdCarrito)"
         celdaProducto.detailTextLabel?.text = String(format: "$%.2f", carritoEnPantalla[indexPath.row].precioProdCarrito)
         return celdaProducto
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Quitar") { (action, sourceView, completion) in
+            self.carritoEnPantalla.remove(at: indexPath.row)
+            self.tablaCarrito?.deleteRows(at: [indexPath], with: .fade)
+            completion(true)
+        }
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction])
+        return swipeConfiguration
+    }
+    
+    @IBAction func regresarInicio(_ sender: UIBarButtonItem) {
+        tablaCarrito?.reloadData()
+        performSegue(withIdentifier: "unwindSegueToThirdView", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "unwindSegueToThirdView"{
+            let vuelta = segue.destination as! ViewController
+            vuelta.carritoGuardado = carritoEnPantalla
+        }
     }
 
 }
